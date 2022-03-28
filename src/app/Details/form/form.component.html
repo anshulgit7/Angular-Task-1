@@ -1,0 +1,37 @@
+<br>
+<h4 class="text-center" style="margin-top: 25px;">Enter your details below for form validation</h4>
+<br>
+<form [formGroup]="detailsForm" (ngSubmit)="submit()" style="margin-top: 15px">
+    <div class="mb-3">
+      <label for="name1" class="form-label">Enter Name</label>
+      <input type="text" class="form-control" id="name1" formControlName="name">
+      <span style="color:red;" *ngIf="name && name.invalid && name.touched">This input field is not valid.</span>
+      <br>
+    </div>
+    <div class="mb-3">
+        <label for="email1" class="form-label">Enter Email</label>
+        <input type="email" class="form-control" id="email1" formControlName="email">
+        <span style="color:red;" *ngIf="email && email.invalid && email.touched">This input field is not valid.</span>
+        <br>
+    </div>
+    <div class="mb-3">
+        <label for="city1" class="form-label">Enter City</label>
+        <input type="text" class="form-control" id="city1" formControlName="city">
+        <span style="color:red;" *ngIf="city && city.invalid && city.touched">This input field is not valid.</span>
+        <br>
+    </div>
+    <div class="mb-3">
+        <label for="phone1" class="form-label">Enter Mobile</label>
+        <input type="email" class="form-control" id="phone1" formControlName="phone">
+        <span style="color:red;" *ngIf="phone && phone.invalid && phone.touched">This input field is not valid.</span>
+        <br>
+    </div>
+    <div class="mb-3">
+      <label for="code1" class="form-label">Enter PinCode</label>
+      <input type="text" class="form-control" id="code1" formControlName="pin">
+      <span style="color:red;" *ngIf="pin && pin.invalid && pin.touched">This input field is not valid.</span>
+      <br>
+    </div>
+    <button [disabled]="detailsForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    <br><br>
+</form>

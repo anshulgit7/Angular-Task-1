@@ -1,0 +1,19 @@
+<br>
+<h1  class="text-center" style="margin-top: 25px;">Card Application</h1>
+<br>
+<form [formGroup]="cardForm" (ngSubmit)="cardSubmit()" style="margin-top: 15px">
+    <div class="mb-3">
+      <label for="name1" class="form-label">Enter Name</label>
+      <input type="text" class="form-control" id="name1" formControlName="name">
+      <span style="color:red;" *ngIf="name && name.invalid && name.touched">This input field is not valid.</span>
+      <br>
+    </div>
+    <div class="mb-3">
+      <label for="code1" class="form-label">Enter Salary</label>
+      <input type="text" class="form-control" id="code1" formControlName="amount">
+      <span style="color:red;" *ngIf="amount && amount.invalid && amount.touched">This input field is not valid.</span>
+      <br>
+    </div>
+    <button [disabled]="cardForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+    <br><br>
+</form>

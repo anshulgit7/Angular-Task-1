@@ -1,0 +1,22 @@
+<div *ngIf="this.months.length===0; else elseBlock"></div>
+<ng-template #elseBlock>
+  <h5 class="text-center" style="margin-top: 25px;"><strong>Monthly EMI</strong></h5>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Month</th>
+            <th scope="col">EMI Paid</th>
+            <th scope="col">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+            <div *ngFor="let m of months let ind = index">
+                    <th scope="row">{{ind+1}}</th>
+                    <td>{{m.emi1 | number : '1.0-2' }}</td>
+                    <!-- <td></td> -->
+                    <td>{{m.balance1 | number : '1.0-2' }}</td>
+                
+            </div>
+        </tbody>
+      </table>
+</ng-template>

@@ -1,0 +1,27 @@
+<h2 class="text-center" style="margin-top: 25px;">This is Our Home Page</h2>
+
+<h3 class="text-center" style="margin-top: 25px;">Fill the below form to calculate both Yearly and Monthly EMI</h3>
+<br>
+<form [formGroup]="emiForm" (ngSubmit)="getData()" style="margin-top: 15px">
+    <div class="mb-3">
+      <label for="amount1" class="form-label">Enter Amount</label>
+      <input type="text" class="form-control" id="amount1" formControlName="amount">
+      <span style="color:red;" *ngIf="amount && amount.invalid && amount.touched">This input field is not valid.</span>
+      <br>
+    </div>
+    <div class="mb-3">
+      <label for="interest1" class="form-label">Enter Interest</label>
+      <input type="text" class="form-control" id="interest1" formControlName="interest">
+      <span style="color:red;"  *ngIf="interest && interest.invalid && interest.touched">This input field is not valid.</span>
+      <br>
+    </div>
+    <div class="mb-3">
+        <label for="time1" class="form-label">Enter Duration in Years</label>
+        <input type="text" class="form-control" id="time1" formControlName="duration">
+      <span style="color:red;"  *ngIf="duration && duration.invalid && duration.touched">This input field is not valid.</span>
+      <br>
+      </div>
+    <button [disabled]="emiForm.invalid" type="submit" class="btn btn-primary">Display monthly and yearly EMI</button>
+</form>
+<app-monthly [months]="inmonth"></app-monthly>
+<app-yearly [years]="inyear"></app-yearly>

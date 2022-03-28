@@ -1,0 +1,22 @@
+<div *ngIf="this.years.length===0; else elseBlock"></div>
+<ng-template #elseBlock>
+  <h5 class="text-center" style="margin-top: 25px;"><strong>Yearly EMI</strong></h5><br><br>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Year</th>
+            <th scope="col">EMI Paid</th>
+            <th scope="col">Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+            <div *ngFor="let m of years let ind = index">
+                    <th scope="row">{{ind+1}}</th>
+                    <td>{{m.emi2 | number : '1.0-2' }}</td>
+                    <!-- <td></td> -->
+                    <td>{{m.balance2 | number : '1.0-2' }}</td>
+                
+            </div>
+        </tbody>
+      </table>
+</ng-template>

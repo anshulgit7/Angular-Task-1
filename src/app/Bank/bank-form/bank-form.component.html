@@ -1,0 +1,25 @@
+<h1  class="text-center" style="margin-top: 25px;">Banking Application</h1>
+<br><br>
+<h2><strong>{{title}}</strong></h2>
+<br>
+<form [formGroup]="bankForm" (ngSubmit)="bankSubmit()" style="margin-top: 15px">
+    <div class="mb-3">
+      <label for="name1" class="form-label">Enter Name</label>
+      <input type="text" class="form-control" id="name1" formControlName="name">
+      <span style="color:red;" *ngIf="name && name.invalid && name.touched">This input field is not valid.</span>
+      <br>
+    </div>
+    <div class="mb-3">
+        <label for="amount1" class="form-label">Enter Amount</label>
+        <input type="text" class="form-control" id="amount1" formControlName="amount">
+        <span style="color:red;" *ngIf="amount && amount.invalid && amount.touched">This input field is not valid.</span>
+        <br>
+    </div>
+    <button [disabled]="bankForm.invalid" type="submit" class="btn btn-primary">Create Account</button>
+    <br><br>
+</form>
+<button [disabled]="bankForm.invalid" (click)="checkBalance()" type="submit" class="btn btn-primary">Check Balance</button>
+<br>
+<br>
+<button [disabled]="bankForm.invalid" (click)="addBalance()" type="submit" class="btn btn-primary">ADD Rs. 1000</button>
+<br>
